@@ -94,6 +94,9 @@ if not args.output:
     # prevent filename issues
     slug_prompt = "".join(c for c in args.prompt if (c.isalnum() or c in "_- "))
 
+    # Trim the length to 100 characters to prevent issues with maximum pathlength
+    slug_prompt = slug_prompt[0:100]
+
     # And create the final filename
     fname = f"{timestamp} - {slug_prompt}"
 else:
